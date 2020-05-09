@@ -1,0 +1,4 @@
+# This .gitignore is for making life less complicating
+
+# Mac
+**.DS_Store
