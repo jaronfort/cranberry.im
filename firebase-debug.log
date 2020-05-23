@@ -1,0 +1,25 @@
+[debug] [2020-05-22T15:30:38.618Z] ----------------------------------------------------------------------
+[debug] [2020-05-22T15:30:38.622Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve
+[debug] [2020-05-22T15:30:38.622Z] CLI Version:   8.2.0
+[debug] [2020-05-22T15:30:38.623Z] Platform:      darwin
+[debug] [2020-05-22T15:30:38.623Z] Node Version:  v10.15.1
+[debug] [2020-05-22T15:30:38.624Z] Time:          Fri May 22 2020 08:30:38 GMT-0700 (Pacific Daylight Time)
+[debug] [2020-05-22T15:30:38.624Z] ----------------------------------------------------------------------
+[debug] [2020-05-22T15:30:38.624Z] 
+[debug] [2020-05-22T15:30:38.643Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-05-22T15:30:38.644Z] > authorizing via signed-in user
+[debug] [2020-05-22T15:30:38.644Z] [iam] checking project cse405project for permissions ["firebase.projects.get"]
+[debug] [2020-05-22T15:30:38.649Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/cse405project:testIamPermissions  
+ {"permissions":["firebase.projects.get"]}
+[debug] [2020-05-22T15:30:39.019Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 22 May 2020 15:26:48 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=188","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-05-22T15:30:39.021Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/cse405project  
+ 
+[debug] [2020-05-22T15:30:39.225Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 22 May 2020 15:26:48 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Serving from '/Users/Jasoule/Dropbox/edu/cse405/project/project'...
+[info] 
+[debug] [2020-05-22T15:30:39.228Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/cse405project/webApps/-/config  
+ 
+[debug] [2020-05-22T15:30:39.663Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Fri, 22 May 2020 15:26:49 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-27=\":443\"; ma=2592000,h3-25=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q049=\":443\"; ma=2592000,h3-Q048=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting: Serving hosting files from: public
+[info] ✔  hosting: Local server: http://localhost:5000

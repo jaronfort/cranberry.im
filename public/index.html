@@ -1,0 +1,83 @@
+<DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- jQuery -->
+    <script src="scripts/jquery.min.js"></script>
+    
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/7.14.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.14.5/firebase-analytics.js"></script>
+    <script src="/__/firebase/7.14.5/firebase-auth.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/reset.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
+    <title>Funnel Cake</title>
+</head>
+<body>
+
+    <h1>Funnel Cake</h1>
+
+    <div id="message" class="message">loading...</div>
+
+    <div id="loginForm">
+        <h2>Passwordless Login</h2>
+        <form action="nojs.html" method="POST" target="_blank">
+            <label for="email">Email</label>
+            <input type="email" id="email">
+            <input id="sendLinkBtn" type="submit" value="Send Login Link">
+        </form>
+    </div>
+
+    <div id="dashboard">
+
+    </div>
+
+    <script>
+    userExists = false
+    $(document).ready(() => {
+        message.innerHTML = ''
+
+        if (userExists)
+        {
+            
+        }
+        else
+        {
+            $(loginForm).fadeIn(2000)
+        }
+
+        $(sendLinkBtn).click(() => {
+            __login()
+            return false
+        })
+    })
+
+    function __login()
+    {
+        if (userExists)
+            return
+
+        const emailValue = email.value
+        message.innerHTML = 'logged in with ' + emailValue
+    }
+
+    function __logout()
+    {
+        if (!userExists)
+            return
+    }
+    </script>
+
+</body>
+</html>
