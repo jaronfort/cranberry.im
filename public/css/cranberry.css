@@ -113,6 +113,13 @@ hr {
 	margin: 0;
 }
 
+#brand > .version {
+	font-size: .7em;
+	color : rgb(196, 196, 196);
+	font-weight: bold;
+	font-style: italic;
+}
+
 .content {
 	display: block;
 	margin: 1em auto 0 auto;
