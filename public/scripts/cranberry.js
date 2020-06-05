@@ -14,6 +14,13 @@ $(document).ready(() => {
     // status message for slow browsers
     message.innerHTML = 'loading...';
 
+    // init firestore
+    const db = firebase.firestore();
+    db.settings({
+        
+    });
+
+
     firebase.auth().onAuthStateChanged(__authStateChanged);
 
     // resize action
@@ -37,16 +44,24 @@ $(document).ready(() => {
 
         firebase.auth()
             .signInWithEmailLink(email, window.location.href)
-                .then((result) => {
-                    // clear email storage
-                    window.localStorage.removeItem('emailForSignIn');
-                    __sanitizeUrl();
-                })
-                .catch((error) => {
-                    // handle error
-                    __sanitizeUrl();
-                    alert(error);
-                });
+            .then((result) => {
+                // clear email storage
+                window.localStorage.removeItem('emailForSignIn');
+                __sanitizeUrl();
+            })
+            .catch((error) => {
+                // handle error
+                __sanitizeUrl();
+                alert(error);
+            });
+        return false;
+    });
+
+    $(sendChatBtn).click(() => {
+        var msg = $(userChatMessage).val();
+        if (msg)
+            appendOutgoingChat('defaultLog', 'Me', msg);
+        $(userChatMessage).val('');
         return false;
     });
 
@@ -60,10 +75,10 @@ function __sanitizeUrl() {
     var index = 0;
     var newURL = oldURL;
     index = oldURL.indexOf('?');
-    if(index == -1){
+    if (index == -1) {
         index = oldURL.indexOf('#');
     }
-    if(index != -1){
+    if (index != -1) {
         newURL = oldURL.substring(0, index);
     }
     window.location.href = newURL;
@@ -75,16 +90,19 @@ function __authStateChanged(user) {
         $(dashView).display();
         $(loginView).dismiss();
         $(app).addClass('active');
+        $(brand).addClass('ready');
     }
     else if (firebase.auth().isSignInWithEmailLink(window.location.href) && !exhausted) {
         var email = window.localStorage.getItem('emailForSignIn');
         if (!email)
             $(loginView).display();
         $(app).removeClass('active');
+        $(brand).removeClass('loading').addClass('hero');
     }
     else {
         $(authView).display();
         $(app).removeClass('active');
+        $(brand).removeClass('loading').addClass('hero');
     }
 }
 
@@ -101,8 +119,7 @@ function __sendAuthLink() {
         return;
 
     emailValue = email.value;
-    if(!emailValue)
-    {
+    if (!emailValue) {
         alert('Please provide your email address.');
         return;
     }
@@ -115,13 +132,13 @@ function __sendAuthLink() {
             $('.placeholder-email').html(emailValue);
             $(sentView).display();
         })
-    ;
+        ;
 }
 
 function __logout() {
     if (!currentUser())
         return;
-    
+
     firebase.auth().signOut().then(function () {
         // success
         return false;
@@ -165,4 +182,30 @@ jQuery.fn.dismiss = function () {
     // hide view
     $(this).hide({ duration: fadeDuration, step: __resize, complete: __resize });
     this._showing = false;
+}
+
+function appendOutgoingChat(roomID, sender, text) {
+    var html = '<div class="chat">' +
+        '<div class="message sent">' +
+        '<div class="meta">' +
+        '<div class="display-name">' + sender + '</div>' +
+        '<div class="time" data-timestamp="' + Date() + '">now</div>' +
+        '</div><p>' + text + '</p>' +
+        '</div></div>'
+        ;
+
+    $('#' + roomID).append(html);
+}
+
+function appendIncomingChat() {
+    var html = '<div class="chat">' +
+        '<div class="message received">' +
+        '<div class="meta">' +
+        '<div class="display-name">' + sender + '</div>' +
+        '<div class="time" data-timestamp="' + Date() + '">now</div>' +
+        '</div><p>' + text + '</p>' +
+        '</div></div>'
+        ;
+
+    $('#' + roomID).append(html);
 }

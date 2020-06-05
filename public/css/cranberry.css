@@ -94,6 +94,7 @@ hr {
 #brand.loading > h1.logo {
 	width: 160px;
 	height: 21px;
+	margin: 0 auto;
 }
 
 #brand.hero {
@@ -103,6 +104,12 @@ hr {
 #brand.hero > h1.logo {
 	width: 640px;
 	height: 84px;
+	margin: 0;
+}
+
+#brand.ready > h1.logo {
+	width: 160px;
+	height: 21px;
 	margin: 0;
 }
 
@@ -264,7 +271,7 @@ textarea.input.text.block {
 }
 
 .chatroom .chat {
-	display: block;
+	display: table;
 	width: 100%;
 	margin: 1em 0 0 0;
 }
@@ -286,8 +293,8 @@ textarea.input.text.block {
 
 .chatroom .chat > .message.received {
 	background: white;
-    color: #af0036;
-    border: solid 2px #af0036;
+	color: #af0036;
+	border: solid 2px #af0036;
 }
 
 .chatroom .chat .meta {
@@ -336,8 +343,7 @@ textarea.input.text.block {
 	font-weight: bold;
 }
 
-#bottom-bar
-{
+#bottom-bar {
 	display: block;
 	position: fixed;
 	background: white;

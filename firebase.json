@@ -5,11 +5,27 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/connect",
+        "function": "app"
+      }
     ]
   },
   "emulators": {
     "hosting": {
       "port": 5000
+    },
+    "functions": {
+      "port": 8080
+    },
+    "ui": {
+      "enabled": true,
+      "port": 8080
+    },
+    "firestore" : {
+      "rules" : "firestore.rules"
     }
   }
 }

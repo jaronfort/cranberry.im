@@ -5,3 +5,7 @@
 
 # Node.js
 package-lock.json
+
+# Firebase
+.firebase
+firebase-debug.log
