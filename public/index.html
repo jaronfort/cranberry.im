@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -18,66 +18,118 @@
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
+    <script src="/scripts/cranberry.js?v=0.1.7"></script>
 
     <link rel="stylesheet" type="text/css" href="css/reset.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/flexboxgrid.min.css">
+    <link rel="stylesheet" type="text/css" href="fonts.css?v=1.0.0">
+    <link rel="stylesheet" type="text/css" href="css/cranberry.css?v=0.2.6">
 
-    <title>Funnel Cake</title>
+    <title>Cranberry.im - Instant Messaging</title>
+
 </head>
+
 <body>
 
-    <h1>Funnel Cake</h1>
+    <div id="app">
 
-    <div id="message" class="message">loading...</div>
+            <div id="brand" class="loading">
+                <h1 class="logo"><span>Cranberry.im</span></h1>
+            </div>
 
-    <div id="loginForm">
-        <h2>Passwordless Login</h2>
-        <form action="nojs.html" method="POST" target="_blank">
-            <label for="email">Email</label>
-            <input type="email" id="email">
-            <input id="sendLinkBtn" type="submit" value="Send Login Link">
-        </form>
+            <div id="statusView" class="view">
+                <div class="inner">
+                    <div class="loader"></div>
+                    <div id="message" class="message"></div>
+                </div>
+            </div>
+
+            <div id="authView" class="view">
+                <div id="authForm" class="content">
+                    <div class="section">
+                        <p class="lead">Cranberry.im is a simple instant messenging project.</p>
+                        <h2>Passwordless Authentication</h2>
+                        <form action="nojs.html" method="POST" target="_blank">
+                            <div class="input group">
+                                <input type="email" id="email" class="text input" placeholder="Email">
+                                <button id="sendLinkBtn" class="input button primary" type="submit">Get Link</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sentView" class="view">
+                <div class="section">
+                    <p>Success! Your authentication link has been sent to <span class="placeholder-email">[placeholder-email]</span>. A password is never required but you will be prompted to confirm your email address in order to sign in.</p>
+                </div>
+            </div>
+
+            <div id="loginView" class="view">
+                <div class="section">
+                    <p>Please confirm your email address to sign in.</p>
+                    <hr>
+                    <form action="/nojs.html" method="POST" target="_blank">
+                        <div class="input group">
+                            <input id="confirmEmail" class="input text" type="email" placeholder="Confirm Email">
+                            <button id="loginBtn" class="input button primary">Sign In</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div id="dashView" class="view">
+                <div class="section">
+                    <div class="row">
+                        <div class="col-xs-4 col-md-3">
+                            <button id="logoutBtn" class="input button block default">Sign Out</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="chats">
+                    <div class="chatroom section">
+                        <div class="log">
+                        <!--
+                            <div class="chat">
+                                <div class="message received">
+                                    <div class="meta">
+                                        <div class="display-name">Cranberry-Bot</div>
+                                        <div class="time">less than a 1m</div>
+                                    </div>
+                                    <p>Hello welcome to Cranberry.im, yet another instant messenger.</p>
+                                </div>
+                            </div>
+                            <div class="chat">
+                                <div class="message sent">
+                                    <div class="meta">
+                                        <div class="display-name">Me</div>
+                                        <div class="time">3s</div>
+                                    </div>
+                                    <p>Hello everyone!</p>
+                                </div>
+                            </div>
+                        -->
+                        </div>
+                    </div>
+                </div>
+                <div id="bottom-bar">
+                    <div class="input block">
+                        <form action="nojs.html" target="_blank" method="POST">
+                            <div class="row">
+                                <div class="col-xs-5 col-sm-7 col-md-8">
+                                    <textarea type="text" id="userChatMessage" class="input text block" placeholder="Type message here..."></textarea>
+                                </div>
+                                <div class="col-xs-4 col-sm-5 col-md-4">
+                                    <button type="submit" id="sendChatBtn" class="input button block primary"><span>Send Chat</span></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <div id="dashboard">
-
-    </div>
-
-    <script>
-    userExists = false
-    $(document).ready(() => {
-        message.innerHTML = ''
-
-        if (userExists)
-        {
-            
-        }
-        else
-        {
-            $(loginForm).fadeIn(2000)
-        }
-
-        $(sendLinkBtn).click(() => {
-            __login()
-            return false
-        })
-    })
-
-    function __login()
-    {
-        if (userExists)
-            return
-
-        const emailValue = email.value
-        message.innerHTML = 'logged in with ' + emailValue
-    }
-
-    function __logout()
-    {
-        if (!userExists)
-            return
-    }
-    </script>
 
 </body>
 </html>

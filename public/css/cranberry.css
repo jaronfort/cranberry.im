@@ -1,0 +1,399 @@
+/**
+ *  Main Stylesheet
+ *  -------------------------------
+ *  This file contents CSS rules for defining the basic look
+ *  and feel of the web application. This stylesheet assumes
+ *  the reset on https://meyerweb.com/eric/tools/css/reset/.
+ *
+ *  Author:     Jaron Fort
+ *  Date:       05/22/20
+ */
+
+/* mobile first queries */
+
+html,
+body {
+	height: 100%;
+}
+
+*:focus {
+	outline: none;
+}
+
+body {
+	font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: #73394b;
+	background: #f9f4f6;
+}
+
+h1 {
+	font-size: 2.4em;
+}
+
+h2 {
+	font-size: 1.6em;
+}
+
+h3 {
+	font-size: 1.4em;
+}
+
+h4 {
+	font-size: 1.2em;
+}
+
+h5 {
+	font-size: 1em;
+}
+
+h6 {
+	font-size: .8em;
+}
+
+p.lead {
+	font-size: 1.2em;
+	font-weight: lighter;
+}
+
+hr {
+	display: block;
+	height: 2px;
+	background: #f4eaed;
+	border: none;
+}
+
+#brand {
+	display: block;
+	position: relative;
+	margin: 0;
+	padding: 1.4em;
+	transition: padding .4s;
+}
+
+#brand > h1.logo {
+	display: block;
+	background: url('cranberry-logo.svg');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: contain;
+	width: 320px;
+	height: 42px;
+	padding: 0;
+	margin: 0;
+	transition: width 1s, height 1s, margin 1s;
+}
+
+#brand > h1.logo > span {
+	display: none;
+	visibility: hidden;
+}
+
+#brand.loading > h1.logo {
+	width: 160px;
+	height: 21px;
+}
+
+#brand.hero {
+	padding: 1em 2.4em;
+}
+
+#brand.hero > h1.logo {
+	width: 640px;
+	height: 84px;
+	margin: 0;
+}
+
+.content {
+	display: block;
+	margin: 1em auto 0 auto;
+}
+
+.content > .inner,
+.content > .section > .inner {
+	padding: .5em;
+}
+
+.content.inline {
+	display: inline-block;
+}
+
+.inner {
+	padding: 1em;
+}
+
+.message {
+	color: #ff511d;
+}
+
+.view {
+	display: none;
+	overflow: hidden;
+}
+
+.section {
+	display: block;
+	width: 100%;
+	padding: 1.4em;
+	padding-bottom: 0;
+	box-sizing: border-box;
+}
+
+.section:last-of-type {
+	padding: 1.4em;
+}
+
+.loader {
+	display: block;
+	position: relative;
+	margin: 0 auto;
+	width: 24px;
+	height: 24px;
+	border: 4px solid #e4b1c1;
+	border-top: 4px solid #af0036;
+	border-radius: 1000px;
+	animation: loaderSpin .8s linear infinite;
+}
+
+.button,
+.input,
+form label {
+	font-size: 14px;
+}
+
+.button,
+.input.text {
+	padding: 4px 16px;
+}
+
+.button {
+	display: inline-block;
+	position: relative;
+	width: auto;
+	background: #d3d3d3;
+	color: white;
+	border: 1px solid #3c03145b;
+	box-sizing: border-box;
+	border-radius: 4px;
+	font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+	font-weight: normal;
+}
+
+.button.default {
+	background-color: rgb(134, 134, 134);
+}
+
+.button.default:hover {
+	background-color: rgb(168, 168, 168);
+}
+
+.button.primary {
+	background-color: #00c18a;
+}
+
+.button.primary:hover {
+	background-color: #00d89b;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+.text.input {
+	display: inline-block;
+	position: relative;
+	font-family: "Source Sans Pro", Arial, Helvetica, sans-serif;
+	background: white;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .2);
+	border: solid 1px #ac9aa0;
+	border-radius: 4px;
+	box-sizing: border-box;
+	transition: border-color .4s;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.text.input::placeholder {
+	color: #d1cacc;
+}
+
+.text.input:hover {
+	border-color: #94536a;
+}
+
+.text.input:focus,
+.text.input:focus:hover {
+	box-shadow: none;
+	border: solid 2px #da0049;
+	padding: 3px 11px;
+}
+
+.input.group > .input:first-child {
+}
+
+.input.group > .input:last-child {
+	border-radius: 0 4px 4px 0;
+	margin-left: -4px;
+}
+
+.input.group > .input.text:first-of-type {
+	display: block;
+	width: 100%;
+}
+
+.input.group > .input.button:last-of-type {
+	position: relative;
+	float: right;
+	top: -28px;
+}
+
+.input.block {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+textarea.input.text.block {
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 40px;
+}
+
+.chatroom {
+	background: white;
+}
+
+.chatroom .chat {
+	display: block;
+	width: 100%;
+	margin: 1em 0 0 0;
+}
+
+.chatroom .chat > .message {
+	display: inline-block;
+	position: relative;
+	width: 100%;
+	max-width: 300px;
+	padding: .7em;
+	border-radius: 8px;
+}
+
+.chatroom .chat > .message.sent {
+	background: #ff521d;
+	color: white;
+	float: right;
+}
+
+.chatroom .chat > .message.received {
+	background: white;
+    color: #af0036;
+    border: solid 2px #af0036;
+}
+
+.chatroom .chat .meta {
+	height: 14px;
+	padding-bottom: .4em;
+}
+
+.chatroom .chat .display-name,
+.chatroom .chat .time {
+	font-size: 8px;
+	font-weight: lighter;
+}
+
+.chatroom .chat .display-name {
+	float: left;
+	font-weight: bolder;
+}
+
+.chatroom .chat .time {
+	float: right;
+}
+
+#app {
+	transition: width 1s, height 1s, margin 1s;
+}
+
+#app,
+#app.active {
+	display: none; /* hide initially */
+	position: relative;
+	background: white;
+	width: 100%;
+	height: 100%;
+	transition: height 2s;
+	margin: 0;
+}
+
+#message {
+	display: block;
+	position: relative;
+	margin: 0;
+	text-align: center;
+}
+
+#sentView .placeholder-email {
+	font-weight: bold;
+}
+
+#bottom-bar
+{
+	display: block;
+	position: fixed;
+	background: white;
+	box-shadow: 0 -1px 2px rgba(0, 0, 0, .2);
+	padding: 1.4em;
+	margin: 0;
+	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.view.visible {
+	display: block;
+	visibility: visible;
+}
+
+@keyframes loaderSpin {
+	0% {
+		transform: rotate(0deg);
+	}
+	50% {
+		transform: rotate(180deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
+
+/* Smart Phone */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+}
+
+/* Phablet */
+@media only screen and (min-width: 550px) {
+}
+
+/* Tablet */
+@media only screen and (min-width: 750px) {
+	#app {
+		width: 80%;
+		height: auto;
+		border-radius: 6px;
+		border: solid 1px #3c03145b;
+		box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+	}
+
+	#app.active {
+		border: none;
+		border-radius: 0;
+	}
+}
+
+/* Desktop */
+@media only screen and (min-width: 1000px) {
+}
+
+/* Desktop Hd */
+@media only screen and (min-width: 1200px) {
+}
