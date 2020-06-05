@@ -1,7 +1,8 @@
 # Cranberry.im
 
-This project is for CSE 405 Server Programming at CSUSB.
-Feel free to check out this project at [Cranberry.im](https://cranberry.im)
+Cranberry.im is a project for CSE 405 Server Programming at CSUSB.
+This project is currently hosted at [Cranberry.im](https://cranberry.im).
+Feel free to play give it a chat (usage limits may apply).
 
 ## Getting Started
 
