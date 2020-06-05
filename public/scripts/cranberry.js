@@ -13,14 +13,6 @@ $(document).ready(() => {
 
     // status message for slow browsers
     message.innerHTML = 'loading...';
-
-    // init firestore
-    const db = firebase.firestore();
-    db.settings({
-        
-    });
-
-
     firebase.auth().onAuthStateChanged(__authStateChanged);
 
     // resize action
